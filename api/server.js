@@ -1,4 +1,4 @@
-import http from 'node:http';import crypto from 'node:crypto';import {Pool} from 'pg';
+import http from 'node:http';import crypto from 'node:crypto';import pg from 'pg';const {Pool}=pg;
 if(!process.env.DATABASE_URL||!process.env.ADMIN_TOKEN)throw Error('Missing DATABASE_URL or ADMIN_TOKEN');
 const db=new Pool({connectionString:process.env.DATABASE_URL,ssl:{rejectUnauthorized:true},max:4});
 const origin='https://conecta-surpresa.onrender.com',port=Number(process.env.PORT||10000);
